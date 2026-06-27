@@ -1,0 +1,83 @@
+.adw-about-card {
+  margin: 14px 16px;
+  background: var(--adw-surface);
+  border-radius: var(--adw-radius);
+  box-shadow: var(--adw-shadow);
+  padding: 16px;
+}
+
+.adw-about-text {
+  font-size: 0.85rem;
+  color: var(--adw-text-secondary);
+  line-height: 1.5;
+  margin: 0 0 10px;
+}
+
+.adw-dev-row {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid var(--adw-border);
+}
+
+.adw-dev-row:first-of-type {
+  border-top: none;
+  padding-top: 4px;
+}
+
+.adw-dev-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--adw-surface-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: var(--adw-green-1);
+  flex-shrink: 0;
+}
+
+.adw-dev-name {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--adw-text);
+}
+
+.adw-dev-role {
+  display: inline-block;
+  margin-top: 3px;
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: var(--adw-orange-1);
+  text-transform: uppercase;
+}
+
+.adw-dev-note {
+  margin: 4px 0 0;
+  font-size: 0.76rem;
+  color: var(--adw-text-secondary);
+  line-height: 1.35;
+}
+
+.adw-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--adw-text);
+  padding: 6px 0;
+}
+
+.adw-contact-row ion-icon {
+  color: var(--adw-green-1);
+  font-size: 1.1rem;
+}
+
+.adw-about-footer {
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--adw-text-secondary);
+  padding-bottom: 20px;
+}
