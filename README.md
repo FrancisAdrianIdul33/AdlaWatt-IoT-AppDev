@@ -1,71 +1,245 @@
-# AdlaWatt Mobile App — Page Templates
+# AdlaWatt: IoT-Based Portable Off-Grid Solar Energy Harvesting System
 
-These files match the folder structure already inside your `src/` directory
-(based on your VS Code screenshot). Copy each folder's contents into the
-matching folder in your real project — they will merge with what you have
-(only `App.tsx` and `theme/variables.css` fully replace your existing files).
+An IoT-based mobile application developed using Ionic React and Supabase for monitoring a portable off-grid solar energy harvesting system. The application allows users to monitor real-time solar energy generation, battery status, and energy consumption through a user-friendly mobile interface.
 
-## Where everything goes
+---
+
+## Table of Contents
+
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Database Setup](#database-setup)
+- [Installation](#installation)
+- [Running the Application](#running-the-application)
+- [Build for Production](#build-for-production)
+- [Deployment](#deployment)
+- [Future Improvements](#future-improvements)
+- [Changelog](#changelog)
+
+---
+
+## Features
+
+- **User Authentication** — Secure login and user authentication using Supabase.
+- **Real-Time Dashboard** — Displays live solar energy generation, battery status, and energy consumption.
+- **Battery Monitoring** — Monitor battery percentage and charging status.
+- **Energy Monitoring** — View current energy generation and consumption data.
+- **Activity Logs** — Displays recent monitoring activities and system events.
+- **Notifications** — Receive important system alerts and notifications.
+- **Responsive Mobile Interface** — Optimized for Android devices using Ionic Framework.
+- **IoT Integration** *(Prototype)* — Connects with the AdlaWatt hardware prototype for real-time monitoring.
+
+> **Note:** Some features may still be under development and are subject to change.
+
+---
+
+## Tech Stack
+
+### Frontend
+
+- Ionic React
+- React 18
+- TypeScript
+- Vite
+- CSS
+
+### Backend
+
+- Supabase
+- Supabase Authentication
+- Supabase Database
+
+### Development Tools
+
+- Visual Studio Code
+- Git
+- GitHub
+- Vercel
+
+---
+
+## Project Structure
+
+```text
+AdlaWatt-IoT-AppDev/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── AppHeader.tsx
+│   │   ├── AppHeader.css
+│   │   ├── BatteryGauge.tsx
+│   │   ├── BatteryGauge.css
+│   │   ├── SideMenu.tsx
+│   │   └── SideMenu.css
+│   ├── context/
+│   │   ├── AppDataContext.tsx
+│   │   └── SettingsContext.tsx
+│   ├── data/
+│   │   └── mockData.ts
+│   ├── pages/
+│   │   ├── AboutUs.tsx
+│   │   ├── ActivityLog.tsx
+│   │   ├── Dashboard.tsx
+│   │   ├── Notifications.tsx
+│   │   ├── OpeningPage.tsx
+│   │   └── Settings.tsx
+│   ├── theme/
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── vite-env.d.ts
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
+```
+
+---
+
+## Database Setup
+
+This project uses **Supabase** as its backend service.
+
+### Requirements
+
+- Supabase Project
+- Database Tables *(to be documented)*
+- Authentication Enabled
+
+### Environment Variables
+
+Create a `.env` file in the project root.
+
+```env
+VITE_SUPABASE_URL=YOUR_SUPABASE_URL
+VITE_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
+```
+
+---
+
+## Installation
+
+Clone the repository.
+
+```bash
+git clone https://github.com/FrancisAdrianIdul33/AdlaWatt-IoT-AppDev.git
+```
+
+Go inside the project.
+
+```bash
+cd AdlaWatt-IoT-AppDev
+```
+
+Install dependencies.
+
+```bash
+npm install
+```
+
+---
+
+## Running the Application
+
+Start the development server.
+
+```bash
+ionic serve
+```
+
+or
+
+```bash
+npm run dev
+```
+
+The application will be available at
 
 ```
-src/
-  components/
-    AppHeader.tsx / .css      -> shared top bar (hamburger + notification bell)
-    SideMenu.tsx / .css       -> hamburger side menu (Dashboard, Components,
-                                 Activity Logs, Notifications, About, Settings)
-    BatteryGauge.tsx / .css   -> circular "sun-arc" battery % gauge
-  pages/
-    OpeningPage.tsx / .css    -> 3-second animated splash screen
-    Dashboard.tsx / .css      -> Tip of the Day, Real-Time Monitoring,
-                                 Statistics, Recent Activity
-    ComponentsPage.tsx / .css -> Active/Inactive/All component list
-    ActivityLogs.tsx / .css   -> Hour/Day/Week/Year activity history
-    Notifications.tsx / .css  -> Hour/Day/Week/Year notifications, mark as read
-    AboutUs.tsx / .css        -> About AdlaWatt, developers, contact info
-    Settings.tsx / .css       -> Dark mode, color-blind mode, font size
-  context/
-    SettingsContext.tsx       -> global dark mode / color-blind / font size state
-    AppDataContext.tsx        -> global live stats / components / logs / notifications
-  data/
-    mockData.ts               -> ALL placeholder data lives here
-  utils/
-    dateFilter.ts              -> powers the Hour/Day/Week/Year sorting toggles
-    tipOfTheDay.ts              -> simple rule-based Tip of the Day generator
-  theme/
-    variables.css               -> your color palette, dark mode, color-blind mode
-  App.tsx                        -> routing + menu setup (replaces your current App.tsx)
+http://localhost:8100
 ```
 
-Your existing `pages/Home.tsx` and `components/ExploreContainer.tsx` (the
-default Ionic starter files) are no longer used by the routes in the new
-`App.tsx` — you can keep or delete them.
+or
 
-## What to replace once the hardware is ready
+```
+http://localhost:5173
+```
 
-Search the code for `TODO(hardware)` and `TODO(hardware/backend)` comments —
-every one marks a spot that currently shows placeholder/mock data and is
-meant to be swapped for a real Supabase read once the ESP32 + sensors are
-wired up. The main ones:
+depending on the selected development mode.
 
-- `data/mockData.ts` — `liveStats`, `statisticsHistory`, `componentsList`,
-  `activityLogs`, `notifications` are all hardcoded arrays/objects.
-- `context/AppDataContext.tsx` — where you'd add the Supabase realtime
-  subscription to replace the local `useState` calls.
-- `Notifications.tsx` — where temperature alerts should trigger a phone
-  vibration via the Capacitor Haptics plugin.
-- `AboutUs.tsx` — developer roles/notes/photos are placeholders; confirm and
-  update before your defense.
-- `SideMenu.tsx` / `OpeningPage.tsx` — both have a placeholder logo (an emoji)
-  marked with a TODO to swap in your real AdlaWatt logo/animation.
+---
 
-## Notes
+## Build for Production
 
-- Built with Ionic React (matches your existing project's structure).
-- Font is Inter, loaded via a Google Fonts `@import` in `variables.css` — for
-  an offline/production build, switch to `@fontsource/inter` instead (noted
-  inline in the file).
-- Dark mode and color-blind mode are toggled by adding `adw-dark` /
-  `adw-colorblind` classes to `<html>` — see `SettingsContext.tsx`.
-- Settings currently persist to `localStorage`. For native iOS/Android builds,
-  swap this for `@capacitor/preferences` (noted inline in
-  `SettingsContext.tsx`).
+Generate the production build.
+
+```bash
+npm run build
+```
+
+The compiled files will be generated inside the `dist/` directory.
+
+---
+
+## Deployment
+
+The project is configured for deployment using **Vercel**.
+
+To deploy manually:
+
+```bash
+vercel --prod
+```
+
+or connect the GitHub repository directly to Vercel for automatic deployments.
+
+---
+
+## Future Improvements
+
+- Real-time IoT communication
+- Push notifications
+- Energy usage analytics
+- Battery health monitoring
+- Historical energy reports
+- Offline data synchronization
+- Multiple device support
+- Dark mode
+- User profile management
+
+---
+
+## Changelog
+
+### Current Version
+
+- Initial Ionic React project setup
+- Dashboard interface
+- Battery Gauge component
+- Activity Log page
+- Notifications page
+- Settings page
+- About Us page
+- Responsive side navigation
+- Context API implementation
+- Supabase integration *(ongoing)*
+
+---
+
+## Developers
+
+- **Francis Adrian Idul**
+- **Troy M. Rojo**
+- **Rhics T. Geonzon**
+
+Bachelor of Science in Information Technology
+
+Northern Bukidnon State College
+
+---
+
+## License
+
+This project was developed as an undergraduate capstone project for academic purposes.
+
+Commercial use is prohibited without permission from the authors.
