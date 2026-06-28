@@ -66,7 +66,7 @@ const Dashboard: React.FC = () => {
                 <span className="adw-metric-value">
                   <IonIcon icon={thermometerOutline} /> {liveStats.batteryTempC.toFixed(1)}°C
                 </span>
-                <span className="adw-metric-note">{liveStats.fanOn ? 'Fan On' : 'Fan Off'}</span>
+              
               </div>
             </div>
           </IonCardContent>

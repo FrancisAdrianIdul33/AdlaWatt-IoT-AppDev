@@ -2,6 +2,41 @@
   margin: 14px 16px 4px;
   --background: var(--adw-surface-soft);
   border-radius: 12px;
+  padding: 4px;
+  width: calc(100% - 32px);
+}
+
+.adw-segment ion-segment-button {
+  --background: transparent;
+  --background-checked: transparent;
+  --color: var(--adw-text-secondary);
+  --color-checked: var(--adw-text-secondary); /* text color no longer changes when selected */
+  --indicator-color: var(--adw-accent-solid);
+  --indicator-height: 3px;
+  --indicator-box-shadow: none;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.adw-segment ion-segment-button[aria-selected="true"] {
+  font-weight: 800;
+  --color-checked: var(--adw-text);
+}
+
+.adw-segment ion-segment-button ion-label {
+  margin: 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 360px) {
+  .adw-segment ion-segment-button {
+    font-size: 0.72rem;
+  }
 }
 
 .adw-component-grid {

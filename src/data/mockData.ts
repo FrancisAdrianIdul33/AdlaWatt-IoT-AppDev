@@ -61,7 +61,6 @@ export interface LiveStats {
   loadNowWatts: number;
   deviceOnline: boolean;
   batteryTempC: number;
-  fanOn: boolean;
   isSunny: boolean;
 }
 
@@ -78,7 +77,6 @@ export const liveStats: LiveStats = {
   loadNowWatts: 170,
   deviceOnline: true,
   batteryTempC: 20.0,
-  fanOn: false,
   isSunny: true,
 };
 
@@ -224,7 +222,7 @@ export const activityLogs: ActivityLogEntry[] = [
   {
     id: 'a2',
     title: 'Solar input increased',
-    description: 'Solar input rose from 18W to 46W as cloud cover cleared.',
+    description: 'Solar input rose from 18W to 46W as the INA219 sensor detected clearer skies.',
     timestamp: minutesAgo(50),
   },
   {
@@ -235,30 +233,41 @@ export const activityLogs: ActivityLogEntry[] = [
   },
   {
     id: 'a4',
-    title: 'Cooling fan activated',
-    description: 'Fan turned on automatically after battery reached 42°C.',
-    timestamp: hoursAgo(9),
+    title: 'Power outlet turned on',
+    description: 'The relay switched on the built-in outlet to supply power to a connected device.',
+    timestamp: hoursAgo(7),
   },
   {
     id: 'a5',
+    title: 'Charge controller regulated charging',
+    description: 'Charging was automatically reduced after the battery reached a safe voltage threshold.',
+    timestamp: hoursAgo(9),
+  },
+  {
+    id: 'a6',
     title: 'Power outlet in use',
     description: 'A household device was plugged into the built-in outlet.',
     timestamp: daysAgo(2),
   },
   {
-    id: 'a6',
+    id: 'a7',
     title: 'Weekly summary generated',
     description: 'AdlaWatt harvested an estimated 5.4 kWh of solar energy this week.',
     timestamp: daysAgo(6),
   },
   {
-    id: 'a7',
+    id: 'a8',
+    title: 'Voltage sensor reading recorded',
+    description: 'Battery voltage logged at 12.6V, within the normal operating range.',
+    timestamp: daysAgo(12),
+  },
+  {
+    id: 'a9',
     title: 'Firmware check completed',
     description: 'ESP32 confirmed it is running the latest firmware version.',
     timestamp: daysAgo(40),
   },
 ];
-
 // TODO(hardware/backend): Trigger these server-side from the
 // ESP32/backend whenever a threshold is crossed. Pair the "temperature"
 // type with a device vibration using the Capacitor Haptics plugin.
@@ -282,7 +291,7 @@ export const notifications: AppNotification[] = [
   {
     id: 'n3',
     title: 'Battery temperature is high',
-    description: 'Battery reached 44°C. Cooling fan has been activated.',
+    description: 'Battery reached 44°C. Keep AdlaWatt in a shaded, ventilated spot.',
     timestamp: hoursAgo(2),
     type: 'temperature',
     read: false,
@@ -313,6 +322,14 @@ export const notifications: AppNotification[] = [
   },
   {
     id: 'n7',
+    title: 'LCD display unable to connect',
+    description: 'LCD2004 display did not respond to the last health check.',
+    timestamp: daysAgo(2),
+    type: 'component',
+    read: false,
+  },
+  {
+    id: 'n8',
     title: 'Device went offline',
     description: 'AdlaWatt lost connection to the home Wi-Fi network.',
     timestamp: daysAgo(3),
@@ -320,7 +337,7 @@ export const notifications: AppNotification[] = [
     read: true,
   },
   {
-    id: 'n8',
+    id: 'n9',
     title: 'Battery was low',
     description: 'Battery dropped to 15%. Consider repositioning the solar panel.',
     timestamp: daysAgo(50),

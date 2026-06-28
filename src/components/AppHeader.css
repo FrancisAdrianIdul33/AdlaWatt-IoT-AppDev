@@ -16,17 +16,19 @@
   --color: #ffffff;
 }
 
-.adw-notif-btn {
-  position: relative;
+.adw-notif-btn ion-icon {
+  font-size: 22px;
+  color: #ffffff;
 }
 
 .adw-notif-dot {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  bottom: -5px;
+  left: 17px;
   width: 9px;
   height: 9px;
   border-radius: 50%;
   background: var(--adw-danger);
   border: 1.5px solid #ffffff;
+ 
 }
