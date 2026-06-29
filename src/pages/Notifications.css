@@ -1,0 +1,45 @@
+.adw-notif-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px 0 0;
+}
+
+.adw-notif-toolbar .adw-segment {
+  flex: 1;
+}
+
+.adw-mark-all-btn {
+  --color: var(--adw-green-1);
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+.adw-notif-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.adw-notif-card.unread {
+  border-left: 3px solid var(--adw-orange-1);
+}
+
+.adw-notif-icon {
+  font-size: 1.2rem;
+  color: var(--adw-green-1);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.adw-notif-unread-dot {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--adw-danger);
+}

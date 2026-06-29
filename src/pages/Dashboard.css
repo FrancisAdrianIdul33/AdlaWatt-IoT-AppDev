@@ -1,0 +1,183 @@
+/* Shared content background for all inner pages */
+.adw-page-content {
+  --background: var(--adw-bg);
+}
+
+.adw-card {
+  margin: 14px 16px;
+  border-radius: var(--adw-radius);
+  background: var(--adw-surface);
+  box-shadow: var(--adw-shadow);
+}
+
+.adw-tip-card {
+  background: var(--adw-gradient-green);
+}
+
+.adw-tip-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.adw-tip-header ion-icon {
+  color: var(--adw-orange-2);
+  font-size: 1.1rem;
+}
+
+.adw-tip-text {
+  color: #ffffff;
+  margin: 8px 0 0;
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.adw-section-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--adw-text);
+  margin: 0 0 12px;
+}
+
+.adw-section-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.adw-link-btn {
+  background: none;
+  border: none;
+  color: var(--adw-green-1);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0;
+}
+
+.adw-gauge-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.adw-metric-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.adw-metric {
+  background: var(--adw-surface-soft);
+  border-radius: 12px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.adw-metric-label {
+  font-size: 0.72rem;
+  color: var(--adw-text-secondary);
+  font-weight: 600;
+}
+
+.adw-metric-value {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--adw-text);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.adw-metric-note {
+  font-size: 0.68rem;
+  color: var(--adw-text-secondary);
+}
+
+.adw-good { color: var(--adw-success); }
+.adw-bad { color: var(--adw-danger); }
+
+.adw-bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 90px;
+  margin-bottom: 14px;
+}
+
+.adw-bar {
+  flex: 1;
+  min-height: 6px;
+  border-radius: 6px 6px 2px 2px;
+  background: var(--adw-gradient-orange);
+}
+
+.adw-stat-footer {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.adw-stat-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--adw-surface-soft);
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--adw-text-secondary);
+}
+
+.adw-stat-chip ion-icon {
+  color: var(--adw-orange-1);
+}
+
+.adw-activity-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.adw-activity-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.adw-activity-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--adw-green-1);
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.adw-activity-title {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--adw-text);
+}
+
+.adw-activity-time {
+  margin: 2px 0 0;
+  font-size: 0.72rem;
+  color: var(--adw-text-secondary);
+}
+
+.adw-empty-state {
+  text-align: center;
+  color: var(--adw-text-secondary);
+  font-size: 0.85rem;
+  padding: 30px 12px;
+}
